@@ -1,0 +1,71 @@
+body {
+  width: 300px;
+  height: 400px;
+  font-family: Arial, sans-serif;
+}
+
+input {
+  width: 91%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+}
+
+button {
+  width: 55px;
+  height: 50px;
+  border-radius: 20%;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #000000;
+  -webkit-border-radius: 20%;
+  -moz-border-radius: 20%;
+  -ms-border-radius: 20%;
+  -o-border-radius: 20%;
+}
+
+.transfer {
+  width: 100%;
+  border-radius: 5%;
+  background-color: #6a6a6a;
+  color: #ffffff;
+  font-size: 30px;
+  -webkit-border-radius: 5%;
+  -moz-border-radius: 5%;
+  -ms-border-radius: 5%;
+  -o-border-radius: 5%;
+}
+
+#mrButton,
+#mcButton,
+#mPlusButton,
+#equalButton
+{
+  background-color: #0639af;
+  color: white;
+}
+
+#openParenButton,
+#closeParenButton,
+#divisionButton,
+#sqrtButton,
+#subtractButton,
+#addButton,
+#multiplyButton,
+#signButton {
+  background-color: #0099ffc6;
+  color: white;
+}
+
+#clearButton,
+#clearEntryButton {
+  background-color: rgb(255, 145, 0);
+  color: white;
+}
+
