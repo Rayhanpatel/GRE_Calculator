@@ -1,0 +1,51 @@
+# Ignore node_modules folder (if present)
+node_modules/
+
+# Ignore any files generated during development or runtime
+*.log
+*.bak
+*.tmp
+*.cache
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.rdb
+*.class
+
+# Ignore compiled or built files
+*.dll
+*.exe
+*.o
+*.out
+*.pyc
+*.pyo
+*.so
+*.dylib
+
+# Ignore IDE or editor-specific files
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
+*.swn
+
+# Ignore any build output or build-related directories
+/build/
+/dist/
+/out/
+/obj/
+/bin/
+/Release/
+/Debug/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore the output folder for the extension
+output/
+
+# Ignore any backup or temporary files
+*~

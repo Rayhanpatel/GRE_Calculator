@@ -88,25 +88,40 @@ equalButton.addEventListener('click', calculate);
 transferButton.addEventListener('click', copyToClipboard);
 
 let displayValue = '';
+let equalsPressed = false; // Track if equals button was pressed
 
 function appendValue(value) {
+  if (equalsPressed) {
+    clearDisplay();
+    equalsPressed = false;
+  }
   displayValue += value;
   updateDisplay();
 }
 
 function appendOperator(operator) {
+  if (equalsPressed) {
+    equalsPressed = false;
+  }
   displayValue += operator;
   updateDisplay();
 }
 
 function calculate() {
   try {
-    const result = eval(displayValue);
+    const powerRegex = /\d+\*\*\d+/g;
+    if (displayValue.match(powerRegex)) {
+      throw new Error('Power operation not allowed');
+    }
+
+    const result = Function(`return ${displayValue}`)();
     displayValue = result.toString();
     updateDisplay();
+    equalsPressed = true;
   } catch (error) {
     displayValue = 'Error';
     updateDisplay();
+    equalsPressed = true;
   }
 }
 
@@ -115,15 +130,17 @@ function calculateSquareRoot() {
     const value = parseFloat(displayValue);
     if (value >= 0) {
       const result = Math.sqrt(value);
-      displayValue = result.toString();
+      displayValue = result.toFixed(6);
       updateDisplay();
     } else {
       displayValue = 'Error';
       updateDisplay();
     }
+    equalsPressed = true;
   } catch (error) {
     displayValue = 'Error';
     updateDisplay();
+    equalsPressed = true;
   }
 }
 
@@ -138,12 +155,12 @@ function clearEntry() {
 }
 
 function changeSign() {
-  displayValue = eval(`-1 * (${displayValue})`).toString();
+  displayValue = (-1 * parseFloat(displayValue)).toString();
   updateDisplay();
 }
 
 function appendDecimalPoint() {
-  if (displayValue.indexOf('.') === -1) {
+  if (!displayValue.includes('.')) {
     displayValue += '.';
     updateDisplay();
   }
